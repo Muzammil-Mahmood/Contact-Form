@@ -10,42 +10,39 @@
     display: grid;
     place-items: center;
     height: 100vh;
+    background-color: rgb(233, 227, 227);
   }
   
-  h2, p, .add, .input {
-    color: var(--app-light);
-  }
   
   .factory {
     width: 80%;
     text-align: center;
   }
   
-  /* Input */
+  
   .input, .add {
     height: 50px;
     padding: 0 20px;
     border-radius: 6px;
     letter-spacing: 0.9px;
-    color: var(--app-light);
+    color: #fff;
   }
   
   .input {
     width: 350px;
-    background-color: #0e083e;
     margin-right: 20px;
+    background-color: #010;
+
   }
   
   .add {
-    background-color: var(--app-purple);
+    background-color: #010;
     font-weight: 700;
     width: 120px;
   }
-  .add:hover {
-    background-color: var(--app-purple-hover);
-  }
+ 
   
-  /* output */
+  
   .output-body {
     margin-top: 20px;
     width: 100%;
@@ -57,7 +54,7 @@
   }
   
   .output-body div {
-    background-color: var(--app-green);
+    background-color: #5798;
   }
   
   .output-text {
