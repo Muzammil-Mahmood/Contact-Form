@@ -1,0 +1,69 @@
+@import './reset.css';
+
+
+.container {
+    width: min(100% - 30px, 1280px);
+    margin-inline: auto;
+  }
+  
+  .center {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+  
+  h2, p, .add, .input {
+    color: var(--app-light);
+  }
+  
+  .factory {
+    width: 80%;
+    text-align: center;
+  }
+  
+  /* Input */
+  .input, .add {
+    height: 50px;
+    padding: 0 20px;
+    border-radius: 6px;
+    letter-spacing: 0.9px;
+    color: var(--app-light);
+  }
+  
+  .input {
+    width: 350px;
+    background-color: #0e083e;
+    margin-right: 20px;
+  }
+  
+  .add {
+    background-color: var(--app-purple);
+    font-weight: 700;
+    width: 120px;
+  }
+  .add:hover {
+    background-color: var(--app-purple-hover);
+  }
+  
+  /* output */
+  .output-body {
+    margin-top: 20px;
+    width: 100%;
+    height: 70vh;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto;
+  }
+  
+  .output-body div {
+    background-color: var(--app-green);
+  }
+  
+  .output-text {
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+  }
