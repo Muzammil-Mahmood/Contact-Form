@@ -56,7 +56,7 @@ const emailRegex = /^(?=^.{8,}$)[-_A-Za-z0-9]+([_.-][a-zA-Z0-9]+)*@[A-Za-z0-9]+(
 const objects = [];
 word.innerText = `Contacts: ${objects.length}`
 
-function validateEmail(email, regex, output) {
+function emailValidation(email, regex, output) {
   if (!regex.test(email)) {
     output.innerText = 'Invalid Email';
     setTimeout (() => {
@@ -68,7 +68,7 @@ function validateEmail(email, regex, output) {
   }
 }
 
-function validateDuplicates(newObj) {
+function validateCopies(newObj) {
   let valid = true;
   if (objects.length > 0) {
     let newEmail = newObj.email;
@@ -85,16 +85,16 @@ function validateDuplicates(newObj) {
   return valid
 }
 
-function removeSelf(self) {
+function autoDelete(auto) {
   objects.forEach(obj => {
-    if (obj.getAttribute('name') === self.getAttribute('name') && obj.getAttribute('city') === self.getAttribute('city') && obj.getAttribute('email') === self.getAttribute('email')) {
+    if (obj.getAttribute('name') === auto.getAttribute('name') && obj.getAttribute('city') === self.getAttribute('city') && obj.getAttribute('email') === self.getAttribute('email')) {
       objects.splice(objects.indexOf(obj), 1);
     }
   })
-  self.remove();
+  auto.remove();
 }
 
-function deleteText() {
+function removeText() {
   word.innerText = 'Click to Delete'
 }
 
@@ -102,7 +102,7 @@ function noOutput() {
   word.innerText = `Contacts: ${objects.length}`;
 }
 
-function listContacts(newObj, parent) {
+function contactList(newObj, parent) {
   let newContactCard = create('div');
 
   newContactCard.setAttribute('name', newObj.name);
@@ -117,16 +117,16 @@ function listContacts(newObj, parent) {
   return newContactCard
 }
 
-function validateInput(inp) {
+function inputValidation(inp) {
   if (inp.includes(',')) {
     let array = inp.split(', ');
     let name = array[0];
     let city = array[1];
-    let email = validateEmail(array[2], emailRegex, word);
+    let email = emailValidation(array[2], emailRegex, word);
     let newContact = new Contact(name, city, email);
-    let validObject = validateDuplicates(newContact);
+    let validObject = validateCopies(newContact);
     if (email != false && objects.length < 12 && validObject) {
-      let newObject = listContacts(newContact, output);
+      let newObject = contactList(newContact, output);
       objects.unshift(newObject);
       word.innerText = `Contacts: ${objects.length}`
       text.value = '';
@@ -145,7 +145,7 @@ function validateInput(inp) {
 }
 
 onEvent('click', button, function() {
-  validateInput(text.value);
+  inputValidation(text.value);
 })
 
 text.addEventListener("keypress", function(event) {
