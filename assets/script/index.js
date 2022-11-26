@@ -85,36 +85,21 @@ function validateCopies(newObj) {
   return valid
 }
 
-function autoDelete(auto) {
-  objects.forEach(obj => {
-    if (obj.getAttribute('name') === auto.getAttribute('name') && obj.getAttribute('city') === self.getAttribute('city') && obj.getAttribute('email') === self.getAttribute('email')) {
-      objects.splice(objects.indexOf(obj), 1);
-    }
-  })
-  auto.remove();
-}
-
-function removeText() {
-  word.innerText = 'Click to Delete'
-}
-
 function noOutput() {
   word.innerText = `Contacts: ${objects.length}`;
 }
 
 function contactList(newObj, parent) {
-  let newContactCard = create('div');
+  let contactBox = create('div');
 
-  newContactCard.setAttribute('name', newObj.name);
-  newContactCard.setAttribute('city', newObj.city);
-  newContactCard.setAttribute('email', newObj.email);
-  newContactCard.setAttribute('onclick', 'removeSelf(this)');
-  newContactCard.setAttribute('onmouseover', 'deleteText()');
-  newContactCard.setAttribute('onmouseout', 'noOutput()')
-  newContactCard.innerHTML = `<p>Name: ${newObj.name}</p><p>City: ${newObj.city}</p><p>Email: ${newObj.email}</p>`;
-  parent.prepend(newContactCard);
+  contactBox.setAttribute('name', newObj.name);
+  contactBox.setAttribute('city', newObj.city);
+  contactBox.setAttribute('email', newObj.email);
+  contactBox.setAttribute('onmouseout', 'noOutput()')
+  contactBox.innerHTML = `<p>Name: ${newObj.name}</p><p>City: ${newObj.city}</p><p>Email: ${newObj.email}</p>`;
+  parent.prepend(contactBox);
 
-  return newContactCard
+  return contactBox
 }
 
 function inputValidation(inp) {
@@ -123,10 +108,10 @@ function inputValidation(inp) {
     let name = array[0];
     let city = array[1];
     let email = emailValidation(array[2], emailRegex, word);
-    let newContact = new Contact(name, city, email);
-    let validObject = validateCopies(newContact);
+    let contact = new Contact(name, city, email);
+    let validObject = validateCopies(contact);
     if (email != false && objects.length < 12 && validObject) {
-      let newObject = contactList(newContact, output);
+      let newObject = contactList(contact, output);
       objects.unshift(newObject);
       word.innerText = `Contacts: ${objects.length}`
       text.value = '';
