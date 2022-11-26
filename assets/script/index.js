@@ -4,7 +4,7 @@
 
 
 
-// Utility Functions
+
 function onEvent(event, selector, callback) {
   return selector.addEventListener(event, callback);
 }

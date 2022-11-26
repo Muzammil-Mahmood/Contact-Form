@@ -4,19 +4,25 @@
 .container {
     width: min(100% - 30px, 1280px);
     margin-inline: auto;
-  }
-  
-  .center {
+    background-color: #000000;
     display: grid;
     place-items: center;
     height: 100vh;
-    background-color: rgb(233, 227, 227);
   }
   
   
-  .factory {
+  
+  
+  .bigbox {
     width: 80%;
     text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 40px;
   }
   
   
@@ -39,6 +45,7 @@
     background-color: #010;
     font-weight: 700;
     width: 120px;
+    font-size: larger;
   }
  
   
@@ -54,7 +61,9 @@
   }
   
   .output div {
-    background-color: #5798;
+    background-color: #010;
+    color: #fff;
+    text-align: left;
   }
   
   .word {
@@ -63,4 +72,5 @@
     font-size: 16px;
     width: 100%;
     text-align: center;
+    color: #fff;
   }
